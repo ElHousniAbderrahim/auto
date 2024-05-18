@@ -9,7 +9,7 @@
   <body>
     @include('menu')
 
-    
+
     <div class="container text-center">
 
     <div class="row">
@@ -30,27 +30,19 @@
                       </tr>
                   </thead>
                   <tbody>
-                      <tr>
-                          <td>1</td>
-                          <td>abderrahim</td>
-                          <td>el housni</td>
+                    @foreach ($admins as $admin)
+                        <tr>
+                          <td>{{ $admin->id}}</td>
+                          <td>{{ $admin->nom}}</td>
+                          <td>{{ $admin->prenom}}</td>
                           <td>
                               <a href="#" class="btn btn-primary">Update</a>
                               <a href="#" class="btn btn-danger">Delete</a>
 
                           </td>
-                      </tr>
-                      <tr>
-                          <td>2</td>
-                          <td>fouad</td>
-                          <td>El arjani</td>
-                          <td>
-                              <a href="#" class="btn btn-primary">Update</a>
-                              <a href="#" class="btn btn-danger">Delete</a>
-
-                          </td>
-                      </tr>
-                  </tbody>
+                        </tr>
+                    @endforeach
+ </tbody>
 
 
           </table>

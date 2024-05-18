@@ -15,27 +15,39 @@
         <div class="col s12">
             <hr>
           <h3>Liste Des Admin</h3>
-        
+
 
             {{-- coder ici --}}
             <div class="container">
+                <div class="container">
 
+                    @if(session('status') )
+                        <div class="alert alert-success">
+                            <strong> {{ session('status') }}</strong>
+                        </div>
+                                          @endif
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li class="alert alert-danger"> {{ $error }}</li>
+                          @endforeach
+                    </ul>
                 <form  action="/ajouter/traitement_admin/" method="POST" class="form-group" >
+                    @csrf
                   <div class="form-group">
                     <label for="nom">Nom:</label>
-                    <input type="text" class="form-control" id="nom">
+                    <input name="nom" type="text" class="form-control" id="nom">
                   </div>
                   <div class="form-group">
                     <label for="prenom">Prenom:</label>
-                    <input type="text" class="form-control" id="prenom">
+                    <input name="prenom" type="text" class="form-control" id="prenom">
                   </div>
                   <div class="form-group">
                     <label for="password">Password:</label>
-                    <input type="password" class="form-control" id="password">
+                    <input name="password" type="password" class="form-control" id="password">
                   </div>
                   <div class="form-group">
                     <div >
-                      <button type="submit" class="btn btn-warning">Ajouter</button>
+                      <button type="submit" class="btn btn-warning">Ajouter Admin</button>
                     </div>
                     <br>
 
