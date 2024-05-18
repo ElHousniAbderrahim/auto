@@ -15,6 +15,9 @@ use App\Http\Controllers\Chef_divController;
 |
 */
 
+Route::get('/', function(){
+    return view('welcome');
+});
 /* les route des technicien*/
 Route::get('/technicien', [TechnicienController::class,'liste_technicien']);
 Route::get('/ajouter_technicien', [TechnicienController::class,'ajouter_technicien']);
