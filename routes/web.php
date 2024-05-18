@@ -5,9 +5,11 @@ use App\Http\Controllers\TechnicienController;
 use App\Http\Controllers\AdministrationController;
 use App\Http\Controllers\ajouter_magasin;
 use App\Http\Controllers\Chef_divController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MagasinController;
 use App\Http\Controllers\OrderDeTravailleConroller;
 use App\Http\Controllers\ReclamationController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +25,12 @@ use App\Http\Controllers\ReclamationController;
 Route::get('/', function(){
     return view('welcome');
 });
+// auth routes
+Route::get('/register', [RegisterController::class, 'register'])->name('register');
+Route::post('/register', [RegisterController::class, 'store']);
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/login', [LoginController::class, 'auth']);
+//
 /* les route des technicien*/
 Route::get('/technicien', [TechnicienController::class,'liste_technicien']);
 Route::get('/ajouter_technicien', [TechnicienController::class,'ajouter_technicien']);
