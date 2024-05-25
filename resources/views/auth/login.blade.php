@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ajouter Technicien </title>
+    <title>Ajouter un utilisateur</title>
 
   </head>
   <body>
@@ -13,16 +13,16 @@
     <div class="row">
         <div class="col s12">
         <hr>
-          <h3>Ajouter Des Technicien</h3>
+          <h3>Ajouter un utilisateur</h3>
 
                 {{-- coder ici --}}
                 <div class="container">
 
-                    @if(session('status') )
-                        <div class="alert alert-success">
-                            <strong> {{ session('status') }}</strong>
+                    @if(session('error') )
+                        <div class="alert alert-sucsses">
+                            {{ session('error') }}
                         </div>
-                                          @endif
+                    @endif
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li class="alert alert-danger"> {{ $error }}</li>
@@ -30,28 +30,21 @@
                     </ul>
 
 
-                    <form  action="/ajouter/traitement_technicien/" method="POST" class="form-group" >
+                    <form  action="/login" method="POST" class="form-group" >
                         @csrf
                       <div class="form-group">
-                        <label for="nom">Nom:</label>
-                        <input name="nom" type="text" class="form-control" id="nom">
+                        <label for="username">Username :</label>
+                        <input name="username" type="text" class="form-control" id="username">
                       </div>
                       <div class="form-group">
-                        <label for="prenom">Prenom:</label>
-                        <input name="prenom" type="text" class="form-control" id="prenom">
-                      </div>
-                      <div class="form-group">
-                        <label for="password">Password:</label>
-                        <input name="password" type="password" class="form-control" id="password">
+                        <label for="password">Mot de passe :</label>
+                        <input name="password" type="text" class="form-control" id="password">
                       </div>
                       <div class="form-group">
                         <div >
-                          <button type="submit" class="btn btn-warning">Ajouter</button>
+                          <button type="submit" class="btn btn-warning">Login</button>
                         </div>
-                        <br>
-
-                        <a href="/technicien" class="btn btn-danger">Rvenir a la Liste Technicien</a>
-                  </div>
+                      </div>
 
                       </div>
                     </form>
